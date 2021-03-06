@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ftpd:
+    image: stilliard/pure-ftpd:hardened
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - ./data:/home/itbru
+      - ./passwd:/etc/pure/pure-ftpd/passwd
+    environment:
+      FTP_USER_NAME: itbru
+      FTP_USER_PASS: 1234
+      FTP_USER_HOME: /home/itbru
